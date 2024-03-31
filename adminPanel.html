@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Welcome to the Admin Panel</h1>
+
+    <div id="adminContent">
+        <!-- Video -->
+        <video id="adminVideo" controls style="display: none;">
+            <source id="videoSource" src="secret.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <!-- Text -->
+        <p id="adminText" style="display: none;">flag: SashasNumberOneFan</p>
+    </div>
+
+    <!-- Button to set admin status -->
+    <button onclick="setAdminCookie()">Set Admin Cookie</button>
+
+    <script>
+        // Function to set the admin cookie
+        function setAdminCookie() {
+            console.log(document.cookie)
+            // Set the admin cookie with an expiration date
+            document.cookie = "admin=true; path=/";
+            console.log(document.cookie)
+            
+            // After setting the cookie, check the admin status
+            checkAdminStatus();
+        }
+
+        // Define a function to check if the user is an admin
+        function checkAdminStatus() {
+            // Check if the cookie "admin" is set to true
+            const isAdmin = document.cookie.split(';').some((item) => item.trim().startsWith('admin=true'));
+            
+            // Toggle the display of admin content based on admin status
+            const adminVideo = document.getElementById('adminVideo');
+            const adminText = document.getElementById('adminText');
+            if (isAdmin) {
+                // Display admin content
+                adminVideo.style.display = 'block';
+                adminText.style.display = 'block';
+                console.log("success")
+            } else {
+                // Hide admin content
+                adminVideo.style.display = 'none';
+                adminText.style.display = 'none';
+                console.log("youre not an admin!")
+            }
+        }
+
+        // Call the function immediately to check admin status
+        checkAdminStatus();
+    </script>
+</body>
+</html>
