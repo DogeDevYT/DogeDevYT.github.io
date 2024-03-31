@@ -19,15 +19,6 @@
     </div>
 
     <script>
-        // Function to set the admin cookie ADMINS ONLY
-        function setAdminCookie() {
-            // Set the admin cookie with an expiration date
-            document.cookie = "admin=true; path=/";
-            
-            // After setting the cookie, check the admin status
-            checkAdminStatus();
-        }
-
         // Define a function to check if the user is an admin
         function checkAdminStatus() {
             // Check if the cookie "admin" is set to true
@@ -40,12 +31,10 @@
                 // Display admin content
                 adminVideo.style.display = 'block';
                 adminText.style.display = 'block';
-                console.log("success")
             } else {
                 // Hide admin content
                 adminVideo.style.display = 'none';
                 adminText.style.display = 'none';
-                console.log("youre not an admin!")
             }
         }
 
