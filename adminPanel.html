@@ -18,16 +18,11 @@
         <p id="adminText" style="display: none;">flag: SashasNumberOneFan</p>
     </div>
 
-    <!-- Button to set admin status -->
-    <button onclick="setAdminCookie()">Set Admin Cookie</button>
-
     <script>
-        // Function to set the admin cookie
+        // Function to set the admin cookie ADMINS ONLY
         function setAdminCookie() {
-            console.log(document.cookie)
             // Set the admin cookie with an expiration date
             document.cookie = "admin=true; path=/";
-            console.log(document.cookie)
             
             // After setting the cookie, check the admin status
             checkAdminStatus();
